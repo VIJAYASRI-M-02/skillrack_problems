@@ -1,0 +1,22 @@
+n=int(input())
+arr=[]
+s3=''
+for i in range(n):
+    s1=str(input())
+    arr=[]
+    s2=''
+    s3=''
+    c=0
+    for i in s1:
+        if(i!='^'):
+            s2+=i
+            c+=1
+        else:
+            s3+=s2
+            s3=s3[:len(s3)-1]
+            s2=''
+    s3+=s2
+    if s3:
+        print(s3)
+    else:
+        print(-1)
