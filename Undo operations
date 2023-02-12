@@ -1,3 +1,24 @@
+The program must accept N series of keystrokes as string values as the input. The character ^ represents undo action to clear the last entered keystroke. The program must print the string typed after applying the undo operations as the output. If there are no characters in the string then print -1 as the output. 
+
+Boundary Condition(s):
+        1 <= N <= 100 
+        1<= Length of each string <= 100 
+Input Format: 
+    The first line contains the integer N. The next N lines contain a string on each line. 
+Output Format: 
+    The first N lines contain the string after applying the undo operations. 
+Example Input/Output 1: 
+    Input: 
+        Hey ^ goooo^ glee  
+        lucke^y ^charr^ms 
+        or ^ nge^^^^ 
+Output: 
+        Hey 
+        google 
+        luckycharms 
+        -1 
+
+
 n=int(input())
 arr=[]
 s3=''
