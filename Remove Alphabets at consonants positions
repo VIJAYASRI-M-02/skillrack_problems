@@ -1,0 +1,47 @@
+A string S is passed as input. 
+the program must reverse the string S and then remove all the characters present at the positions of the consonants before the string reversal as output.
+
+boundary conditions:
+1<=length of string <=1000
+
+input:
+baggage
+
+output:
+ggb
+
+input:
+transformer
+
+output:
+msr
+
+program:
+#include <stdio.h>
+#include<stdlib.h>
+#include<string.h>
+int isnotvow(char s){
+    return s=='a'||s=='e'||s=='i'||s=='o'||s=='u';
+}
+
+int main()
+{
+    char s[1000];
+    scanf("%s",s);
+    int arr[1000],k=0;
+    for(int i=0;i<strlen(s);i++){
+        if(isnotvow(s[i])){
+            arr[k++]=i;
+        }
+    }
+    for(int i=0,j=strlen(s)-1;i<=j;i++,j--){
+        char temp=s[i];
+        s[i]=s[j];
+        s[j]=temp;
+    }
+    for(int i=0;i<k;i++){
+        printf("%c",s[arr[i]]);
+    }
+
+    return 0;
+}
