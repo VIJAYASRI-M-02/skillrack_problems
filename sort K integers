@@ -1,0 +1,63 @@
+sort K integers:
+
+The program must accept N integers and an integer K as the input. The program must print every K integers in descending order as the output. Note: If N % K != 0, then sort the final N%K integers in descending order. 
+
+Boundary Condition(s):
+    1 <= N <= 10^4 
+    -99999 <= Array Element Value <= 99999 
+ Input Format:
+    The first line contains the values of N and K separated by a space. 
+    The second line contains N integers separated by space(s).
+Output Format: 
+    The first line contains N integers. 
+ Example Input/Output 1: 
+      Input: 
+      7 3 
+      48 541 23 68 13 41 6 
+      Output: 
+      541 48 23 68 41 13 6 
+Explanation: 
+        The first three integers are 48 541 23, after sorting in descending order the integers are 541 48 23. 
+        The second three integers are 68 13 41, after sorting in descending order the integers are 68 41 13. 
+        The last integer is 6. The integers are 541 48 23 68 41 13 6 Hence the output is 541 48 23 68 41 13 6.
+        
+program:
+int main()
+{
+    int n,k,x;
+    scanf("%d %d",&n,&k);
+    int arr[100000];
+    for(int i=0;i<n;i++){
+        scanf("%d",&arr[i]);
+    }
+    if(n%k!=0){
+        x=n%k;
+    }
+    else{
+        x=0;
+    }
+    for(int i=0;i<n-x;i+=k){
+        for(int j=i;j<i+k;j++){
+            for(int l=j+1;l<i+k;l++){
+                if(arr[j]<arr[l]){
+                    int temp=arr[j];
+                    arr[j]=arr[l];
+                    arr[l]=temp;
+                }
+            }
+        }
+    }
+    for(int i=n-x;i<n;i++){
+        for(int j=i+1;j<n;j++){
+            if(arr[i]<arr[j]){
+                int temp=arr[i];
+                arr[i]=arr[j];
+                arr[j]=temp;
+            }
+        }
+    }
+    for(int i=0;i<n;i++){
+        printf("%d ",arr[i]);
+    }
+
+}
