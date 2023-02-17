@@ -1,0 +1,42 @@
+drake has a string consisting of lower case alphabets. he wants to write a program which will traverse each alphabet in the string S and print the number of consonants from that specific position till the end of the string S
+
+input:
+telegraph
+output:
+6 5 5 4 4 2 2 1
+
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+int vow(char ch){
+  return ch=='a'||ch=='e'||ch=='i'||ch=='o'||ch=='u';
+}
+
+int main()
+{
+    char s[1000000];
+    scanf("%s",s);
+    int n=strlen(s),c=0;
+    for(int i=0;i<n;i++){
+      if(!vow(s[i])){
+        c++;
+      }
+    }
+    
+    printf("%d ",c);
+    if(!vow(s[0])){
+      c--;
+    }
+    for(int i=1;i<n;i++){
+      if(vow(s[i])){
+        printf("%d ",c);
+      }
+      else{
+        printf("%d ",c--);
+        
+      }
+      
+    }
+    return 0;
+}
