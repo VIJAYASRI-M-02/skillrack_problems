@@ -1,0 +1,66 @@
+The program must accept a positive integer matrix of size NxN as the input.
+The program must print the matrix by replacing the common elements in all the row by -1 as the output.
+Boundary Condition(s): 
+3 <= N <= 50 1 <= Matrix element value <= 99 
+
+Input Format: 
+The first line contains the value of N. 
+The next N lines contain N integers separated by space(s). 
+Output Format: 
+The first N lines contain the matrix with the common elements replaced by -1. 
+
+Example Input/Output 1: 
+Input: 
+4 
+1 2 3 4 
+2 3 4 5 
+3 4 5 6 
+4 5 6 7 
+
+Output: 
+1 2 3 -1 
+2 3 -1 5 
+3 -1 5 6 
+-1 5 6 7 
+
+Example Input/Output 2: 
+Input: 
+3 
+3 1 2 
+1 2 3 
+2 3 1 
+
+Output: 
+-1 -1 -1 
+-1 -1 -1 
+-1 -1 -1
+
+#include<stdio.h>
+#include<stdlib.h>
+
+int main()
+{
+    int n,y=0;
+    scanf("%d",&n);
+    int arr[n][n],count[100]={0};
+    for(int i=0;i<n;i++){
+        for(int j=0;j<n;j++){
+            scanf("%d ",&arr[i][j]);
+            if(count[arr[i][j]]==i){
+                count[arr[i][j]]++;
+            }
+        }
+    }
+    for(int i=0;i<n;i++){
+        for(int j=0;j<n;j++){
+            if(count[arr[i][j]]==n){
+                arr[i][j]=-1;
+            }
+            printf("%d ",arr[i][j]);
+        }
+        printf("\n");
+    }
+    
+    
+
+}
