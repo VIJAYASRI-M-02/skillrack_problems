@@ -39,6 +39,6 @@ int main()
             c++;
         }
     }
-    printf("%d oiii",c);
+    printf("%d ",c);
 
 }
